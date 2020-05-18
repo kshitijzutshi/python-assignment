@@ -91,6 +91,9 @@ def findMin(V,H):
     dict_cap_nyc={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
     dict_cap_india={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
     dict_cap_china={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
+    expected_output = {  "Output": [{"region": "New York","total_cost": "","machines": []},
+                                    {"region": "India","total_cost": "","machines": []},
+                                    {"region": "China","total_cost": "","machines": []}]     }
     v_nyc = V
     v_india = V
     v_china = V
@@ -217,3 +220,32 @@ if __name__ == '__main__':
     print("Following is minimal number",
         "of capacity for", n, ": ", end = "")
     findMin(n,hrs)
+
+
+
+
+
+
+
+# 
+# expected_output = {"Output":
+#     [{"region": "New York","total_cost": "",
+#     "machines": [("8XLarge", 7),("XLarge", 1)]},
+#     {"region": "India","total_cost": "","machines": []},
+#     {"region": "China","total_cost": "","machines": []}]}
+#
+# dict_cap_nyc={"Large":1,"XLarge":1,"2XLarge":0,"4XLarge":0,"8XLarge":7,"10XLarge":0}
+# dict_cap_india={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
+# dict_cap_china={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
+#
+# # print(expected_output["Output"])
+# array1 = expected_output["Output"]
+# # print(array1[2])
+# out_nyc = array1[0]
+# out_india = array1[1]
+# out_china = array1[2]
+# out_china["total_cost"] = "$"+str(10150)
+#
+# # print(array1[2])
+#
+# out_nyc["machine"] --> list of tuples
