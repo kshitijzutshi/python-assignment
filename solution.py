@@ -149,7 +149,7 @@ def findMin(V,H):
     print(expected_output)
 
     # print(json.dumps(expected_output,indent = 1))
-
+    return expected_output
 
 # Driver Code
 if __name__ == '__main__':
