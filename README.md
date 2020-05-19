@@ -42,3 +42,7 @@ These machines are located all over the world and depending on which part of the
 ### Output in command line
 
 ![alt text](https://github.com/kshitijzutshi/python-assignment/blob/master/python-sol.PNG)
+
+### Unit test and Test cases
+
+There is a module in Python’s standard library called ```unittest``` which contains tools for testing your code. Unit testing checks if all specific parts of your function’s behavior are correct, which will make integrating  them together with other parts much easier.
