@@ -45,4 +45,8 @@ These machines are located all over the world and depending on which part of the
 
 ### Unit test and Test cases
 
+Reference Link - [Free Code Camp Unit testing](https://www.freecodecamp.org/news/an-introduction-to-testing-in-python/), [Python Docs](https://docs.python.org/3.4/library/unittest.html)
+
 There is a module in Python’s standard library called ```unittest``` which contains tools for testing your code. Unit testing checks if all specific parts of your function’s behavior are correct, which will make integrating  them together with other parts much easier.
+
+In running test.py we get the TestCase Check.
