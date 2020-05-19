@@ -44,7 +44,7 @@ def findMin(V,H):
     i = n_india - 1
     while(i >= 0):
 
-        # Find denominations
+
         while (v_india >= deno_india[i]):
             v_india -= deno_india[i]
             ans_india.append(deno_india[i])
@@ -56,7 +56,7 @@ def findMin(V,H):
     i = n_china - 1
     while(i >= 0):
 
-        # Find denominations
+
         while (v_china >= deno_china[i]):
             v_china -= deno_china[i]
             ans_china.append(deno_china[i])
@@ -69,7 +69,7 @@ def findMin(V,H):
     # Print result nyc
     for i in range(len(ans_nyc)):
         sum_nyc+= (dict_nyc[ans_nyc[i]]*H)
-        print(ans_nyc[i], end = " ")
+        # print(ans_nyc[i], end = " ")
         if(ans_nyc[i] == 10):
             dict_cap_nyc["Large"]+=1
         elif(ans_nyc[i] == 20):
@@ -83,13 +83,13 @@ def findMin(V,H):
         elif(ans_nyc[i] == 320):
             dict_cap_nyc["10XLarge"]+=1
 
-    print("Sum is $"+ str(sum_nyc))
+    # print("Sum is $"+ str(sum_nyc))
 
 
     # Print result india
     for i in range(len(ans_india)):
         sum_india+= (dict_nyc[ans_india[i]]*H)
-        print(ans_india[i], end = " ")
+        # print(ans_india[i], end = " ")
 
         if(ans_india[i] == 10):
             dict_cap_india["Large"]+=1
@@ -104,12 +104,12 @@ def findMin(V,H):
         elif(ans_india[i] == 320):
             dict_cap_india["10XLarge"]+=1
 
-    print("Sum is $"+ str(sum_india))
+    # print("Sum is $"+ str(sum_india))
 
-    # Print result china  dict_cap_china  ans_china
+    # Print result china
     for i in range(len(ans_china)):
         sum_china+= (dict_nyc[ans_china[i]]*H)
-        print(ans_china[i], end = " ")
+        # print(ans_china[i], end = " ")
         if(ans_china[i] == 10):
             dict_cap_china["Large"]+=1
         elif(ans_china[i] == 20):
@@ -123,9 +123,9 @@ def findMin(V,H):
         elif(ans_china[i] == 320):
             dict_cap_china["10XLarge"]+=1
 
-    print("Sum is $"+ str(sum_china))
-    print("China HERE ")
-    print(dict_cap_china)
+    # print("Sum is $"+ str(sum_china))
+    # print("China HERE ")
+    # print(dict_cap_china)
 
 
     # print(expected_output["Output"])
@@ -142,7 +142,10 @@ def findMin(V,H):
     out_nyc["machines"] = [(k, v) for k, v in dict_cap_nyc.items() if v>0]
     out_india["machines"] = [(k, v) for k, v in dict_cap_india.items() if v>0]
     out_china["machines"] = [(k, v) for k, v in dict_cap_china.items() if v>0]
-    print("____________________FINAL OUTPUT________________________________________")
+    print()
+    print()
+    print("___________________________FINAL OUTPUT________________________________________")
+    print()
     print(expected_output)
 
     # print(json.dumps(expected_output,indent = 1))
@@ -150,36 +153,10 @@ def findMin(V,H):
 
 # Driver Code
 if __name__ == '__main__':
-    n = 1150
-    hrs = 1
-    print("Following is minimal number",
+    # n = 1150
+    # hrs = 1
+    n = int(input("Enter Capacity parameter: "))
+    hrs = int(input("Enter Hours parameter: "))
+    print("Following is minimal cost",
         "of capacity for", n, ": ", end = "")
     findMin(n,hrs)
-
-
-
-
-
-
-
-
-# expected_output = {"Output":
-#     [{"region": "New York","total_cost": "",
-#     "machines": []},
-#     {"region": "India","total_cost": "","machines": []},
-#     {"region": "China","total_cost": "","machines": []}]}
-#
-#
-# # print(expected_output["Output"])
-# array1 = expected_output["Output"]
-# # print(array1[2])
-# out_nyc = array1[0]
-# out_india = array1[1]
-# out_china = array1[2]
-# out_china["total_cost"] = "$"+str(10150)
-#
-# # print(array1[2])
-#
-# out_india["machines"] = [(k, v) for k, v in dict_cap_india.items() if v>0]
-#
-# print(out_india["machines"])
