@@ -1,82 +1,4 @@
-# Python 3 program to find minimum
-# number of denominations
-
-def findMin(V,H):
-
-    # All denominations of Indian Currency
-    deno = [10,20,40,80,160]
-    dict_nyc = {10: 120,20:230,40:450,80:774,160:1400,320:2820}
-    dict_india={}
-    dict_china={}
-    dict_cap_nyc={}
-    dict1 = {"Large":10,"XLarge":20,"2XLarge":40,"4XLarge":80,
-"8XLarge":160,"10XLarge":320}
-
-    n = len(deno)
-
-    # Initialize Result
-    ans = []
-
-    # Traverse through all denomination
-    i = n - 1
-    while(i >= 0):
-
-        # Find denominations
-        while (V >= deno[i]):
-            V -= deno[i]
-            ans.append(deno[i])
-
-        i -= 1
-    sum_nyc = 0
-    # Print result
-    for i in range(len(ans)):
-        sum_nyc+= (dict_nyc[ans[i]]*H)
-
-
-
-        print(ans[i], end = " ")
-
-    print("Sum is $"+ str(sum_nyc))
-
-
-
-
-
-
-
-
-
-# Driver Code
-if __name__ == '__main__':
-    n = 1150
-    hrs = 1
-    print("Following is minimal number",
-        "of change for", n, ": ", end = "")
-    findMin(n,hrs)
-
-
-# JS CODE
-# function calculateChange(coins, total) {
-#   var sum = 0;
-#   var dispatched = [];
-#   for (var i = 0; i < coins.length;i++) {
-#     dispatched[i] = 0;
-#   }
-#
-#   while (sum < total) {
-#     for (var c = 0; c < coins.length; c++) {
-#       while (total - sum >= coins[c]) {
-#         sum += coins[c];
-#         dispatched[c]++;
-#       }
-#     }
-#   }
-#   return dispatched;
-# }
-#
-# console.log(calculateChange([50,25,10,5,1],137));
-
-
+# import json
 
 
 def findMin(V,H):
@@ -91,9 +13,9 @@ def findMin(V,H):
     dict_cap_nyc={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
     dict_cap_india={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
     dict_cap_china={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
-    expected_output = {  "Output": [{"region": "New York","total_cost": "","machines": []},
+    expected_output = {"Output": [{"region": "New York","total_cost": "","machines": []},
                                     {"region": "India","total_cost": "","machines": []},
-                                    {"region": "China","total_cost": "","machines": []}]     }
+                                    {"region": "China","total_cost": "","machines": []}]}
     v_nyc = V
     v_india = V
     v_china = V
@@ -118,9 +40,6 @@ def findMin(V,H):
 
         i -= 1
 
-
-
-
      # Traverse through all for india
     i = n_india - 1
     while(i >= 0):
@@ -144,9 +63,6 @@ def findMin(V,H):
 
         i -= 1
 
-
-
-
     sum_nyc = 0
     sum_india = 0
     sum_china = 0
@@ -158,13 +74,13 @@ def findMin(V,H):
             dict_cap_nyc["Large"]+=1
         elif(ans_nyc[i] == 20):
             dict_cap_nyc["XLarge"]+=1
-        elif(ans_nyc[i] == 20):
+        elif(ans_nyc[i] == 40):
             dict_cap_nyc["2XLarge"]+=1
-        elif(ans_nyc[i] == 20):
+        elif(ans_nyc[i] == 80):
             dict_cap_nyc["4XLarge"]+=1
-        elif(ans_nyc[i] == 20):
+        elif(ans_nyc[i] == 160):
             dict_cap_nyc["8XLarge"]+=1
-        elif(ans_nyc[i] == 20):
+        elif(ans_nyc[i] == 320):
             dict_cap_nyc["10XLarge"]+=1
 
     print("Sum is $"+ str(sum_nyc))
@@ -179,13 +95,13 @@ def findMin(V,H):
             dict_cap_india["Large"]+=1
         elif(ans_india[i] == 20):
             dict_cap_india["XLarge"]+=1
-        elif(ans_india[i] == 20):
+        elif(ans_india[i] == 40):
             dict_cap_india["2XLarge"]+=1
-        elif(ans_india[i] == 20):
+        elif(ans_india[i] == 80):
             dict_cap_india["4XLarge"]+=1
-        elif(ans_india[i] == 20):
+        elif(ans_india[i] == 160):
             dict_cap_india["8XLarge"]+=1
-        elif(ans_india[i] == 20):
+        elif(ans_india[i] == 320):
             dict_cap_india["10XLarge"]+=1
 
     print("Sum is $"+ str(sum_india))
@@ -198,19 +114,38 @@ def findMin(V,H):
             dict_cap_china["Large"]+=1
         elif(ans_china[i] == 20):
             dict_cap_china["XLarge"]+=1
-        elif(ans_china[i] == 20):
+        elif(ans_china[i] == 40):
             dict_cap_china["2XLarge"]+=1
-        elif(ans_china[i] == 20):
+        elif(ans_china[i] == 80):
             dict_cap_china["4XLarge"]+=1
-        elif(ans_china[i] == 20):
+        elif(ans_china[i] == 160):
             dict_cap_china["8XLarge"]+=1
-        elif(ans_china[i] == 20):
+        elif(ans_china[i] == 320):
             dict_cap_china["10XLarge"]+=1
 
     print("Sum is $"+ str(sum_china))
     print("China HERE ")
     print(dict_cap_china)
 
+
+    # print(expected_output["Output"])
+    array1 = expected_output["Output"]
+    # print(array1[2])
+    out_nyc = array1[0]
+    out_india = array1[1]
+    out_china = array1[2]
+    out_nyc["total_cost"] = "$"+str(sum_nyc)
+    out_india["total_cost"] = "$"+str(sum_india)
+    out_china["total_cost"] = "$"+str(sum_china)
+
+    # print(array1[2])
+    out_nyc["machines"] = [(k, v) for k, v in dict_cap_nyc.items() if v>0]
+    out_india["machines"] = [(k, v) for k, v in dict_cap_india.items() if v>0]
+    out_china["machines"] = [(k, v) for k, v in dict_cap_china.items() if v>0]
+    print("____________________FINAL OUTPUT________________________________________")
+    print(expected_output)
+
+    # print(json.dumps(expected_output,indent = 1))
 
 
 # Driver Code
@@ -227,16 +162,13 @@ if __name__ == '__main__':
 
 
 
-# 
+
 # expected_output = {"Output":
 #     [{"region": "New York","total_cost": "",
-#     "machines": [("8XLarge", 7),("XLarge", 1)]},
+#     "machines": []},
 #     {"region": "India","total_cost": "","machines": []},
 #     {"region": "China","total_cost": "","machines": []}]}
 #
-# dict_cap_nyc={"Large":1,"XLarge":1,"2XLarge":0,"4XLarge":0,"8XLarge":7,"10XLarge":0}
-# dict_cap_india={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
-# dict_cap_china={"Large":0,"XLarge":0,"2XLarge":0,"4XLarge":0,"8XLarge":0,"10XLarge":0}
 #
 # # print(expected_output["Output"])
 # array1 = expected_output["Output"]
@@ -248,4 +180,6 @@ if __name__ == '__main__':
 #
 # # print(array1[2])
 #
-# out_nyc["machine"] --> list of tuples
+# out_india["machines"] = [(k, v) for k, v in dict_cap_india.items() if v>0]
+#
+# print(out_india["machines"])
